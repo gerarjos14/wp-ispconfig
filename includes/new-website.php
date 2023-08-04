@@ -225,9 +225,9 @@ if(!class_exists('WPISPConfig_New_Website')) :
 										do_action('wpispconfig_all_in_one_before_table', $api);
 										?>
 										<script type="text/javascript">
-											var ispc_selected_server = <?php echo $selected_server; ?>;
+											var ispc_selected_server = <?php echo isset($selected_server) ? $selected_server : 0; ?>;
 											var ispc_selected_php = 'php-fpm';
-											var ispc_php_versions = <?php echo json_encode($php_versions); ?>;
+											var ispc_php_versions = <?php echo isset($php_versions) ? json_encode($php_versions) : array(); ?>;
 
 
 										</script>
@@ -341,8 +341,10 @@ if(!class_exists('WPISPConfig_New_Website')) :
 												<td>
 													<select id="fastcgi_php_version" name="fastcgi_php_version">
 														<?php
-														foreach($php_versions[$selected_server]['php-fpm'] as $key => $values) {
-															echo '<option value="' . $key . '" '. selected($key, '' ) .'>' . $values . '</option>';
+														if(is_array($php_versions) && isset($selected_server)){
+															foreach($php_versions[$selected_server]['php-fpm'] as $key => $values) {
+																echo '<option value="' . $key . '" '. selected($key, '' ) .'>' . $values . '</option>';
+															}
 														}
 														?>	
 													</select>

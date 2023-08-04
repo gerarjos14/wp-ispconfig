@@ -56,7 +56,7 @@ if(!class_exists('WPISPConfig_DefaultValues')) :
 		public static function settings_menu() {
 
 			$page = add_submenu_page(
-				null,
+				'',
 				__('Defaul Values', 'wpispconfig'),
 				__('Default Values', 'wpispconfig'),
 				'manage_options',
