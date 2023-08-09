@@ -85,6 +85,10 @@ You should have received a copy of the GNU General Public License along with WP 
 * Come to website of the plugin [etruel.com](http://etruel.com/contact-us/) and ask there.  I will contact you. Promise.
 
 == Changelog ==
+= 3.1 Aug 9, 2023 =
+* Fix errors when is activated
+* Fix problem with some variables
+
 = 3.1 Nov 2, 2019 =
 * Added PHP type and version selects to New Website form.
 * Added SSL and Let's Encrypt SSL certificate options to New Website form.

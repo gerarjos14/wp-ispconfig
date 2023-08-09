@@ -227,7 +227,7 @@ if(!class_exists('WPISPConfig_New_Website')) :
 										<script type="text/javascript">
 											var ispc_selected_server = <?php echo isset($selected_server) ? $selected_server : 0; ?>;
 											var ispc_selected_php = 'php-fpm';
-											var ispc_php_versions = <?php echo isset($php_versions) ? json_encode($php_versions) : array(); ?>;
+											var ispc_php_versions = <?php echo isset($php_versions) ? json_encode($php_versions) : ''; ?>;
 
 
 										</script>
@@ -341,10 +341,12 @@ if(!class_exists('WPISPConfig_New_Website')) :
 												<td>
 													<select id="fastcgi_php_version" name="fastcgi_php_version">
 														<?php
-														if(is_array($php_versions) && isset($selected_server)){
+														if(isset($php_versions) && is_array($php_versions) && isset($selected_server)){
 															foreach($php_versions[$selected_server]['php-fpm'] as $key => $values) {
 																echo '<option value="' . $key . '" '. selected($key, '' ) .'>' . $values . '</option>';
 															}
+														}else{
+															echo '<option value="">'.__('No avaliable', 'wpispconfig').'</option>';
 														}
 														?>	
 													</select>
